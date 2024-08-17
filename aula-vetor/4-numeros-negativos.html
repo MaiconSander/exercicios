@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Números Negativos</title>
+    <meta name="robots" content="noindex,nofollow">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+
+            <h1>Números Negativos</h1>
+
+            <label for="txtqtdeNumeros">Informe a quantidade de números:</label>
+            
+            <input type="number" id="txtqtdeNumeros">
+
+            <label for="txtNumero">Informe cada número:</label>
+
+            <input type="number" id="txtNumero">
+
+            <button onclick="botao_click()">Armazenar</button>
+
+        </div>
+    </div>
+
+    <script>
+
+        var numeros = [];
+        var numerosNegativos = [];
+
+        function botao_click() {
+
+            var txtqtdeNumeros = document.getElementById("txtqtdeNumeros");
+
+            var txtNumero = document.getElementById("txtNumero");
+
+            var qtdeNumeros = parseInt(txtqtdeNumeros.value);
+
+            if (numeros.length < qtdeNumeros) {
+
+
+                var numero = parseInt(txtNumero.value);
+
+                numeros.push(numero);
+
+                txtNumero.value = "";
+                txtNumero.focus();
+            }
+            if (numeros.length == qtdeNumeros) {
+
+                for (var i = 0; i < numeros.length; i++) {
+
+                    var numero = numeros[i];
+
+                    if (numero < 0) {
+                        numerosNegativos.push(numero);
+                    }
+                }
+
+                alert("Os numeros negativos são " + numerosNegativos.toString());
+
+                numeros = [];
+                numerosNegativos = [];
+                txtNumero.value = "";
+                txtqtdeNumeros.value = "";
+
+
+            } 
+
+          }
+
+    </script>
+
+</body>
+</html>
